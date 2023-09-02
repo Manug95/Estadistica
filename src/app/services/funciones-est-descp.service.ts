@@ -21,7 +21,7 @@ export class FuncionesEstDescpService {
   
   }
 
-  moda(data: number[]): string[] | null {
+  moda(data: number[]): string[] | number {
     const datosContados = this.contarRepeticiones(data);
   
     const max = this.mayorRepeticion(datosContados);
@@ -30,7 +30,7 @@ export class FuncionesEstDescpService {
     if (max > 1)
       return Object.entries(datosContados).filter(x => x[1] === max).map(x => x[0]);
     else
-      return null;
+      return NaN;
   
   }
 
@@ -132,5 +132,26 @@ export class FuncionesEstDescpService {
   //busco el valor mas grande (cantidad mas grande que se repite alguno valor)
   mayorRepeticion(data: Object): number {
     return this.mathService.valorMaximo(Object.values(data));
+  }
+
+  analisisCompleto(data: number[]): {[key: string]: number | string[]} {
+    return {
+      n: this.mathService.longitud(data),
+      media: this.media(data),
+      mediana: this.mediana(data),
+      moda: this.moda(data),
+      q1: this.cuartil_1(data),
+      q2: this.cuartil_2(data),
+      q3: this.cuartil_3(data),
+      rango: this.rango(data),
+      rangoIntercuartilico: this.rangoIntercuartilico(data),
+      variancia: this.variancia(data),
+      desviacionEstandar: this.desviacionEstandar(data),
+      coeficienteDeVariacion: this.coeficienteDeVariacion(data),
+      max: this.mathService.valorMaximo(data),
+      min: this.mathService.valorMinimo(data),
+      baseInferior: this.baseInferior(data),
+      baseSuperior: this.baseSuperior(data)
+    }
   }
 }

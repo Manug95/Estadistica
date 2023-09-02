@@ -2,10 +2,10 @@
 
 <div class="d-flex flex-column align-items-center justify-content-center mb-5">
   <p>Ingrese los datos</p>
-  <textarea name="datos" id="datos" cols="100" rows="5"></textarea>
+  <textarea name="datos" id="datos" cols="100" rows="5" #datos></textarea>
   <label for="separador">Separador</label>
-  <input type="text" id="separador" value=", ">
-  <button id="calcular" class="btn btn-primary mt-3">Calcular</button>
+  <input type="text" id="separador" [value]="separador" (keyup)="actualizarSeparador(separadorInput.value)" #separadorInput>
+  <button id="calcular" class="btn btn-primary mt-3" (click)="calcular(datos.value)">Calcular</button>
 </div>
 
 <div class="table-responsive">
@@ -30,6 +30,10 @@
         <th scope="col">n</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tr>
+        <td *ngFor="let dato of resultados">{{ esArreglo(dato) ? muchasModas(dato) : dato }}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
