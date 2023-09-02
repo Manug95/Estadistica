@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EstadisticaDescriptivaComponent } from './components/estadistica-descriptiva/estadistica-descriptiva.component';
+import { AnalisisCombinatorioComponent } from './components/analisis-combinatorio/analisis-combinatorio.component';
 
 // RouterModule.forRoot([
 //   {path: 'crisis-list', component: CrisisListComponent},
@@ -10,6 +11,7 @@ import { EstadisticaDescriptivaComponent } from './components/estadistica-descri
 // ]),
 const routes: Routes = [
   { path: "estadistica-descriptiva", component: EstadisticaDescriptivaComponent },
+  { path: "analisis-combinatorio", component: AnalisisCombinatorioComponent },
   { path: "", redirectTo: "/", pathMatch: "full" },
   // { path: "**", component: PageNotFoundComponent }
 ];

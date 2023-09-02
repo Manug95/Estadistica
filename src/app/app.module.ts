@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EstadisticaDescriptivaComponent } from './components/estadistica-descriptiva/estadistica-descriptiva.component';
 import { MathService } from './services/math.service';
+import { AnalisisCombinatorioComponent } from './components/analisis-combinatorio/analisis-combinatorio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    EstadisticaDescriptivaComponent
+    EstadisticaDescriptivaComponent,
+    AnalisisCombinatorioComponent
   ],
   imports: [
     BrowserModule,

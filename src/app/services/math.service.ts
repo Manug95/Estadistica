@@ -13,6 +13,12 @@ export class MathService {
     }, 0);
   }
 
+  multiplicarDatos(data: number[]): number {
+    return data.reduce((acumulador, actual) => {
+      return acumulador * actual;
+    }, 1);
+  }
+
   longitud(data: number[]): number {
     return data.length;
   }
@@ -73,4 +79,15 @@ export class MathService {
   valorMaximo(data: number[]): number {
     return Math.max(...data);
   }
+
+  factorial(n: number): number {
+    let factorial = 1;
+
+    for (let i = n; i > 0; i--) {
+      factorial *= i;
+    }
+
+    return factorial;
+  }
+
 }

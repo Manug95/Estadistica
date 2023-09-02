@@ -1,0 +1,51 @@
+<h1 class="text-center">Análisis Combinatorio</h1>
+
+<div class="row justify-content-evenly mt-5">
+  <div class="col-sm-3">
+    <input type="text" class="form-control" placeholder="n" aria-label="n" (keyup)="leerN(inputN.value)" #inputN>
+  </div>
+  <div class="col-sm-3">
+    <input type="text" class="form-control" placeholder="p o n1,n2...nk" aria-label="p" (keyup)="leerP(inputP.value)" #inputP>
+  </div>
+  <div class="col-sm-3">
+    <select class="form-select" aria-label="Default select example" [value]="operacion" (change)="leerOperacion(ope.value)" #ope>
+      <option selected disabled value="-">Tipo Operación</option>
+      <option value="arrSimp">Arreglo Simple</option>
+      <option value="combSimp">Combinación Simple</option>
+      <option value="permSimp">Permutación Simple</option>
+      <option value="arrRep">Arreglo c/Rep</option>
+      <option value="combRep">Combinación c/Rep</option>
+      <option value="permRep">Permutación c/Rep</option>
+    </select>
+  </div>
+  <div class="w-100 d-flex justify-content-center mt-3">
+    <input type="button" class="btn btn-primary" value="Calcular" (click)="calcular()">
+  </div>
+</div>
+
+<div class="d-flex justify-content-evenly mt-5">
+  <div class="">
+    <p class="fw-bold">ARREGLO SIMPLE</p>
+    <span>A<sub>{{n || "n"}},{{subindiceP(p)}}</sub> = {{ arrSimple }}</span>
+  </div>
+  <div class="">
+    <p class="fw-bold">COMBINACIÓN SIMPLE</p>
+    <span>C<sub>{{n || "n"}},{{subindiceP(p)}}</sub> = {{ combSimple }}</span>
+  </div>
+  <div class="">
+    <p class="fw-bold">PERMUTACIÓN SIMPLE</p>
+    <span>P<sub>{{n || "n"}}</sub> = {{ permSimple }}</span>
+  </div>
+  <div class="">
+    <p class="fw-bold">Arreglo c/REP</p>
+    <span>A'<sub>{{n || "n"}},{{subindiceP(p)}}</sub> = {{ arregloRep }}</span>
+  </div>
+  <div class="">
+    <p class="fw-bold">COMBINACIÓN c/REP</p>
+    <span>C'<sub>{{n || "n"}},{{ subindiceP(p) }}</sub> = {{ combRep }}</span>
+  </div>
+  <div class="">
+    <p class="fw-bold">PERMUTACIÓN c/REP</p>
+    <span>P'<sub>{{n || "n"}}</sub><sup *ngFor="let super of cantidadSuperindices; index as i">{{super}}<sub>{{i+1}}</sub>!</sup> = {{ permRep }}</span>
+  </div>
+</div> 
